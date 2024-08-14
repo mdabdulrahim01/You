@@ -1,73 +1,161 @@
 @import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
 
-
-
-
 body {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  background-size: 1000px;
   background-image: url("https://images.pexels.com/photos/1166209/pexels-photo-1166209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
-  background-position: center center;
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .paper {
-  background-image: url("https://i0.wp.com/textures.world/wp-content/uploads/2018/10/2-Millimeter-Paper-Background-copy.jpg?ssl=1");
-  background-size: 500px;
-  background-position: center center;
-  padding: 20px 100px;
-/*  min-width: 800px; */
-  
-  transform: rotateZ(-5deg);
-  box-shadow: 1px 15px 20px 0px rgba(0,0,0,0.5);
-  
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
   position: absolute;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.paper:hover {
+  transform: scale(1.05) rotate(5deg);
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+  opacity: 1;
 }
 
 .paper.heart {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  padding: 0;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
+  background-image: url('https://cdn.pixabay.com/photo/2016/03/31/19/25/cartoon-1294994__340.png');
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+  animation: heartbeat 1.5s infinite;
 }
 
 .paper.image {
-  padding: 10px;
+  padding: 15px 25px;
 }
+
 .paper.image p {
-  font-size: 40px;
+  font-size: 24px;
+  text-align: center;
 }
 
-img {
-  max-height: 200px;
-  width: 100%;
-  user-select: none;
+.paper.red {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
 }
 
-.paper.heart::after {
-  content: "";
-  background-image: url('https://cdn.pixabay.com/photo/2016/03/31/19/25/cartoon-1294994__340.png');
-  width: 100%;
-  height: 100%;
+.paper.red p {
+  color: #721c24;
+}
+
+.paper.anime {
+  background-size: cover;
+  background-position: center;
+}
+
+.expression-image {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 60px;
+  height: 60px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.paper.dragging .expression-image {
+  opacity: 1;
+}
+.large-text {
+    font-size: 36px; /* Larger font size for the paragraphs */
+  }
+  
+  .large-image {
+    width: 240px; /* Larger size for the images */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+p {
+  font-family: 'Zeyada', cursive;
+  font-size: 24px;
+  color: #333;
+  margin: 10px 0;
+}
+
+p.p1 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #d63384;
+}
+
+/* Keyframes for animation */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(-100%);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.1) translateY(30%);
+  }
+  80% {
+    transform: scale(0.9) translateY(-10%);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.1);
+  }
+  40% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  80% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+#confetti {
   position: absolute;
   top: 0;
   left: 0;
-  background-size: 150px;
-  background-position: center center;
-  background-repeat: no-repeat;
-  opacity: 0.6;
-}
-
-p {
-  font-family: 'Zeyada';
-  font-size: 50px;
-  color: rgb(0,0,100);
-  opacity: 0.75;
-  user-select: none;
-  
-  /* filter: drop-shadow(2px 1.5px 1px rgba(0,0,105,0.9));*/
+  width: 100%;
+  height: 100
 }
